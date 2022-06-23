@@ -1,4 +1,6 @@
-FROM lolhens/baseimage-openjre
-ADD target/springbootApp.jar springbootApp.jar
-EXPOSE 8085
-ENTRYPOINT ["java", "-jar", "springbootApp.jar"]
+FROM node:latest
+WORKDIR /usr/src/app
+COPY nodeapp/* /
+RUN npm install
+EXPOSE 3000
+CMD [ "npm","start" ]
